@@ -1,0 +1,11 @@
+users:
+  myusername:
+      profiles:
+        - someone_i_follow
+        - someone.else.i.follow
+        - some-public-account
+  myotherusername:
+      profiles:
+        - someone_i_follow
+        - someone.else.i.follow
+        - some-public-account
