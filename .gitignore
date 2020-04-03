@@ -131,3 +131,5 @@ dmypy.json
 # Added by apastel
 config.yaml
 data/
+session/
+log
