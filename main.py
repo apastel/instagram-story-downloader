@@ -14,9 +14,14 @@ for user in config['users']:
     except:
         L.interactive_login(user)
     
-    try:
-        L.save_session_to_file(f'session/{user}.session')
-        profiles = [Profile.from_username(L.context, username) for username in config['users'][user]['profiles']]
-        L.download_profiles(profiles, profile_pic=False, posts=False, stories=True, fast_update=True)
-    except Exception as e:
-        print(e)
+    L.save_session_to_file(f'session/{user}.session')
+
+    # Download profiles at a time in case one of them has a problem, it doesn't crash the whole process
+    for username in config['users'][user]['profiles']:
+        print(f'\n=== {username} ===')
+        try:
+            profile = Profile.from_username(L.context, username)
+            L.download_profiles([profile], profile_pic=False, posts=False, stories=True, fast_update=True)
+        except Exception as e:
+            print(e)
+
