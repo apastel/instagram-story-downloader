@@ -1,4 +1,5 @@
 from instaloader import Instaloader, Profile
+import datetime
 import yaml
 import os
 
@@ -22,7 +23,7 @@ for account in config['accounts']:
         try:
             profile = Profile.from_username(L.context, user['profile'])
             dl_posts = 'posts' in user and user['posts']
-            L.download_profiles([profile], profile_pic=False, posts=dl_posts, stories=True, fast_update=True)
+            last_week = lambda post: post.date_utc >= datetime.datetime.today() - datetime.timedelta(days=7)
+            L.download_profiles([profile], profile_pic=False, posts=dl_posts, post_filter=last_week, stories=True, fast_update=True)
         except Exception as e:
             print(e)
-
