@@ -22,12 +22,11 @@ for account in config['accounts']:
         print(f"\n=== {user['profile']} ===")
         try:
             profile = Profile.from_username(L.context, user['profile'])
-            dl_posts = 'posts' in user and user['posts']
             last_24hrs = lambda post: post.date_utc >= datetime.datetime.today() - datetime.timedelta(days=1)
             L.download_profiles(
                 [profile],
                 profile_pic=False,
-                posts=dl_posts,
+                posts=True,
                 post_filter=last_24hrs,
                 stories=True,
                 fast_update=True

@@ -3,7 +3,6 @@ accounts:
     - profile: some_username
     - profile: some_other_username
     - profile: another_username
-      posts: yes # If you want their posts to also be downloaded
   my_other_account_name:
     - profile: some_username
     - profile: some_other_username
