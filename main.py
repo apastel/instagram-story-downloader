@@ -1,5 +1,6 @@
 from instaloader import Instaloader, Profile
 import datetime
+import time
 import yaml
 import os
 
@@ -33,3 +34,5 @@ for account in config['accounts']:
             )
         except Exception as e:
             print(e)
+    
+    time.sleep(10)
