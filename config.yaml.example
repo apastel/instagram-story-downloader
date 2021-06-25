@@ -2,7 +2,9 @@ accounts:
   my_account_name:
     - profile: some_username
     - profile: some_other_username
+      posts: false
     - profile: another_username
   my_other_account_name:
     - profile: some_username
     - profile: some_other_username
+      stories: false
