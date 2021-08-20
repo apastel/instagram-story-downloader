@@ -1,5 +1,5 @@
 from instaloader import Instaloader, Profile
-import datetime
+# import datetime
 import time
 import yaml
 import os
@@ -26,14 +26,14 @@ for account in config['accounts']:
         print(f"\n=== {user['profile']} ===")
         try:
             profile = Profile.from_username(L.context, user['profile'])
-            last_24hrs = lambda post: post.date_utc >= datetime.datetime.today() - datetime.timedelta(days=1)
+            # last_24hrs = lambda post: post.date_utc >= datetime.datetime.today() - datetime.timedelta(days=1)
             dl_posts = user['posts'] if 'posts' in user else True # download all posts unless otherwise specified
             dl_stories = user['stories'] if 'stories' in user else True # download all stories unless otherwise specified
             L.download_profiles(
                 [profile],
                 profile_pic=False,
                 posts=dl_posts,
-                post_filter=last_24hrs,
+                # post_filter=last_24hrs,
                 stories=dl_stories,
                 fast_update=True
             )
